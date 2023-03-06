@@ -1,0 +1,9 @@
+groups:
+- name: petshop-metrics
+  rules:
+  - record: pet_shop_pets_in_queue
+    expr: pet_shop_pets_in_queue{instance="petshop:3000", job="petshop"}
+  - record: pet_shop_total_pets_served
+    expr: pet_shop_total_pets_served{instance="petshop:3000", job="petshop"}
+  - record: pet_shop_score
+    expr: pet_shop_score_sum / pet_shop_score_count

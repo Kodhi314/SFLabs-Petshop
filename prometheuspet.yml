@@ -1,0 +1,23 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+  external_labels:
+    monitor: 'codelab-monitor'
+
+rule_files:
+  - 'prometheuspet.rules.yml'
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+  - job_name: 'node_exporter'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['node_exporter:9100']
+  - job_name: 'petshop'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['petshop:3000']
